@@ -1,0 +1,25 @@
+#STYLE!
+
+<div class="container" >
+  <h2 class = "form-signin-heading">Login</h2>
+
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <form class="form-signin" action="/sessions" method="POST">
+    <p>
+      <input type="text" name="email" placeholder="email" class="form-control">
+    </p>
+    <p>
+      <input type="password" name="password" placeholder="password" class="form-control">
+    </p>
+    <p>
+      <input type="submit" value="login" placeholder="login" class="btn btn-lg btn-primary btn-block">
+    </p>
+  </form>
+</div>
