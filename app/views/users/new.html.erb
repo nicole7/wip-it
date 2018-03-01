@@ -1,0 +1,30 @@
+#STYLE
+<div class="container alert alert-warning" role="alert" >
+  <h2 class = "form-signin-heading">Sign Up</h2>
+
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for @user, :html => {class: "form-signin"} do |form| %>
+
+  <p>
+    <%= form.text_field :first_name, placeholder: "first name", class: "form-control"%>
+  </p>
+  <p>
+    <%= form.text_field :last_name, placeholder: "last name", class: "form-control" %>
+  </p>
+  <p>
+    <%= form.text_field :email, placeholder: "email", class: "form-control" %>
+  </p>
+  <p>
+    <%= form.password_field :password, placeholder: "password", class: "form-control" %>
+  </p>
+  <p>
+    <%= form.submit "Sign up!", class: "btn btn-lg btn-primary btn-block" %>
+  </p>
+</div>
