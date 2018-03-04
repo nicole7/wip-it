@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180302031308) do
     t.string "totalNutrients"
     t.boolean "bookarked"
     t.boolean "bought"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

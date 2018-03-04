@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   end
 
   def create
+    @rece
   end
 
   def show
