@@ -3,7 +3,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @rece
+    @recipe = Recipe.create(user: current_user)
+    recipe_response = recipe_search(params)
   end
 
   def show

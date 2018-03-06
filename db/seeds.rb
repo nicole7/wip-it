@@ -6,12 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
 User.destroy_all
 
 25.times do
   first_name = Faker::Name.first_name
-  last_name = Faker::NAme.last_name
-  email = "#{last_name} + "." + #{first_name}@gmail.com"
+  last_name = Faker::Name.last_name
+  email = "#{last_name}" + "." + "#{first_name}@gmail.com"
   password = "12345"
   User.create!(first_name: first_name, last_name: last_name, email: email, password: password)
 end
@@ -23,4 +26,4 @@ user = User.find_by(first_name: "Nicole")
 users << user
 
 users = User.take(10)
-users.each {|firned| user.friends << friend}
+users.each {|friend| user.friends << friend}

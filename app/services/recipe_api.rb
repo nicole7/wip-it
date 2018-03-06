@@ -9,7 +9,7 @@ class RecipeAPI < ApplicationRecord
     @request_hash = JSON.parse(request)
   end
 
-  def initialize(user_search_input)
+  def recipe_search(user_search_input)
     @search_format = "q=#{user_search_input.gsub(" ", "%20")}&"
   end
 

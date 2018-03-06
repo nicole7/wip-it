@@ -1,0 +1,8 @@
+<li>
+  <div class="recipe">
+    <% if @error %>
+      <h3><%= @error %></h3>
+    <% else %>
+      <% if recipe.recipe %>
+        <li><h3>
+      <% elsif recipe.ingredient %>
