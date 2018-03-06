@@ -7,6 +7,8 @@ end
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'dotenv'
 gem 'bootstrap', '~> 4.0.0.beta3'
+gem 'bootstrap-sass', '~> 3.3.7'
+# gem 'sass-rails', '>= 3.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database for Active Record
@@ -26,6 +28,7 @@ gem 'faker'
 gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
