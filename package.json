@@ -1,5 +1,7 @@
 {
   "name": "wip-it-0",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "startbootstrap-landing-page": "^4.0.0"
+  }
 }
