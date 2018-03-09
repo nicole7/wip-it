@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :users do
+    resources :comments
+    resources :recipes
+  end
+
   resources :comments
   resources :friendsips, only: [:new, :create, :destroy]
   resources :likes, only: [:new, :create, :destroy]
@@ -10,9 +15,9 @@ Rails.application.routes.draw do
   resources :recipes
   resources :sessions, only: [:new, :create, :destroy]
 
-  root "recipes#new"
+  root "recipes#show"
 
-  get 'logout', to: "sessions#destroy", as: 'logout'
-  get 'about', to: "about#show", as: 'about'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'about', to: 'about#show', as: 'about'
 
 end

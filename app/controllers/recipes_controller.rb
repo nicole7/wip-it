@@ -8,6 +8,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipes = Recipe.all
+    render 'show'
   end
 
   def destroy

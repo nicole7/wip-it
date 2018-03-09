@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  def index
-    @recipes = Recipe.all
-  end
+
 
   def new
     @user = User.new
