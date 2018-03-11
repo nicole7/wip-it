@@ -26,38 +26,54 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            <% if logged_in? %>
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home
+              <a class="nav-link" href="/">home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"><%= link_to "About", about_path %></a>
+              <a class="nav-link" href="about">about the developer
+                <span class="sr-only"></span>
+              </a>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="logout">logout
+                <span class="sr-only"></span>
+              </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/#{current_user.id}">profile
+                <span class="sr-only"></span>
+              </a>
+            </li>
+             <% else %>
+             <li class="nav-item">
+               <a class="nav-link" href="/">home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">about the developer
+                <span class="sr-only"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/new">register</a>
+                <span class="sr-only"><span>
+              </a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/sessions/new">login</a>
+                <span class="sr-only"><span>
+              </a>
+            </li>
+             <% end %>
           </ul>
          </div>
       </div>
     </nav>
 
-    <!-- Page Content -->
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-lg-3">
-
-          <h1 class="my-4">recipes</h1>
-          <div class="list-group">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
-          </div>
-
-        </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
@@ -88,6 +104,8 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
+
+          <%= yield %>
 
           <div class="row">
 
@@ -210,33 +228,9 @@
     <!-- Bootstrap core JavaScript -->
 
 
-    <%= yield %>
+
   </body>
 </html>
 
 
-######
-<!--  <% if logged_in? %> -->
-<!--
-          <li class="nav-item active"><%= link_to "#{current_user.first_name}'s Profile", user_path(current_user.id), class: "nav-link"  %></li>
-          <li class="nav-item active"><%= link_to "logout", logout_path, class: "sr-only" %></li>
-          <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-          <li class="nav-item active"><%= link_to "About", about_path, class: "sr-only" %></li>
-          <li class="nav-item">
-              <a class="nav-link"><%= link_to "#{current_user.first_name}'s Profile", user_path(current_user.id), class: "sr-only"%>Profile</li>
-          <!--<% else %> -->
-         <!--  <li class="nav-item active"><%= link_to "Home", root_path, class: "sr-only"  %></li>
 
-          <li class="nav-item active"><%= link_to "Register", new_user_path, class: "sr-only" %></li>
-
-          <li class="nav-item active"><%= link_to "Login", new_session_path, class: "sr-only" %>
-          </li>
-            <li class="nav-item active"><%= link_to "about", about_path, class: "sr-only" %></li> -->
-          <!--<% end %>-->
-
-
-           <!-- <li class="nav-item">
-              <a class="nav-link"><%= link_to "Profile", user_path(@current_user.id) %>Profile</a>
-            </li> -->
