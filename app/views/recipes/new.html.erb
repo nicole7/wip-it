@@ -1,1 +1,25 @@
+<div class="container" >
+<h2 class = "form-signin-heading">Search Recipes</h2>
 
+  <% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <form class="form-search" action="/recipes" method="POST">
+    <p>
+      <span>Recipe:</span>
+      <input type="text" name="recipe" placeholder="search recipe" class="form-control">
+    </p>
+    <p>
+      <span>Ingredients:</span>
+      <input type="text" name="ingredients" placeholder="ingredient" class="form-control">
+    </p>
+    <p>
+      <input type="submit" value="Search" class="btn btn-lg btn-primary btn-block">
+    </p>
+  </form>
+</div>

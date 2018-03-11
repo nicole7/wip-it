@@ -16,9 +16,9 @@ module ApplicationHelper
     redirect_to root_path unless current_user == user
   end
 
-  # def authorized?(user)
-  #   current_user == user
-  # end
+  def authorized?(user)
+    current_user == user
+  end
 
   def find_and_ensure_user(id)
     user = User.find_by(id: id)

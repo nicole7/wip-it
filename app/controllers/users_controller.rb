@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  def index
-  end
+
 
   def new
     @user = User.new
@@ -10,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(secure_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to surveys_path
+      redirect_to users_path
     else
       @errors = @user.errors.full_messages
       render 'new'

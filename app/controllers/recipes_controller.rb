@@ -3,9 +3,13 @@ class RecipesController < ApplicationController
   end
 
   def create
+    @recipe = Recipe.create(user: current_user)
+    recipe_response = recipe_search(params)
   end
 
   def show
+    @recipes = Recipe.all
+    render 'show'
   end
 
   def destroy
