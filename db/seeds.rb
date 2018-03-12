@@ -9,7 +9,7 @@
 
 
 
-User.destroy_all
+# User.destroy_all
 
 # 25.times do
 #   first_name = Faker::Name.first_name
@@ -19,7 +19,7 @@ User.destroy_all
 #   User.create!(first_name: first_name, last_name: last_name, email: email, password: password)
 # end
 
-User.create!(first_name: "Nicole", last_name: "Gasperini", email: "gasperini@gmail.com", password: "12345")
+# User.create!(first_name: "Nicole", last_name: "Gasperini", email: "gasperini@gmail.com", encrypted_password: "12345")
 
 # users = User.first(10)
 # user = User.find_by(first_name: "Nicole")

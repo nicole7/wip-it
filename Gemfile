@@ -4,6 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+gem 'devise', '~> 4.2'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'dotenv'
 gem 'bootstrap', '~> 4.0.0.beta3'
@@ -33,7 +34,7 @@ gem 'jquery-rails'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'omniauth'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
