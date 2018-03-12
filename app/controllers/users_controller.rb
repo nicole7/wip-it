@@ -24,6 +24,8 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   private
 
   def secure_params
