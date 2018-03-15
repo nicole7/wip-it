@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
-  get 'home/profile'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -20,7 +18,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :sessions, only: [:new, :create, :destroy]
 
-  root "recipes#show"
+  root "recipes#new"
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'about', to: 'about#show', as: 'about'

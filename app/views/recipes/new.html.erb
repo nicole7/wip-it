@@ -9,17 +9,25 @@
   </ul>
   <% end %>
 
-  <form class="form-search" action="/recipes" method="POST">
-    <p>
-      <span>Recipe:</span>
-      <input type="text" name="recipe" placeholder="search recipe" class="form-control">
-    </p>
-    <p>
-      <span>Ingredients:</span>
-      <input type="text" name="ingredients" placeholder="ingredient" class="form-control">
-    </p>
-    <p>
-      <input type="submit" value="Search" class="btn btn-lg btn-primary btn-block">
-    </p>
-  </form>
-</div>
+
+
+  <%= form_for @recipe do |f| %>
+    <div class="form-group">
+      <label for="recipe-name">Search Recipe</label>
+      <%= f.text_field :name, placeholder: "Recipe", class: 'form-control' %>
+    </div>
+    <%= f.button "Submit", class: 'btn btn-primary' %>
+
+  <% end %>
+
+  <%= form_for @recipe do |f| %>
+    <div class="form-group">
+      <label for="recipe-name">Search Ingredients</label>
+        <%= f.text_field :name, placeholder: "Ingredients", class: 'form-control' %>
+    </div>
+    <%= f.button "Submit", class: 'btn btn-primary' %>
+  <% end %>
+
+
+
+
