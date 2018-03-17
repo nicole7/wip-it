@@ -18,9 +18,13 @@ Rails.application.routes.draw do
   resources :recipes
   resources :sessions, only: [:new, :create, :destroy]
 
+
+
   root "recipes#new"
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'about', to: 'about#show', as: 'about'
+  get 'racer', to: 'racer#show', as: 'racer'
+  get 'tictac', to: 'tictac#show', as: 'tictac'
 
 end
