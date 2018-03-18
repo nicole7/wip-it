@@ -40,7 +40,7 @@ class Racer < ApplicationRecord
   def self.board_visualization
     board = Array.new
 
-    @player_positions.each do |player, position|
+    player_positions.each do |player, position|
       track = Array.new(@length) { [' ', '|'] }
       track[@player_positions[player]] = player
       board << track
