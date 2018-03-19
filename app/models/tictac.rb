@@ -1,0 +1,2 @@
+class Tictac < ApplicationRecord
+end

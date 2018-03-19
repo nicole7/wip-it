@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
-  get 'home/profile'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -24,13 +22,20 @@ Rails.application.routes.draw do
   resources :recipes
   resources :sessions, only: [:new, :create, :destroy]
 
-  root "recipes#show"
+
+
+  root "recipes#new"
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'about', to: 'about#show', as: 'about'
+
+  get 'racer', to: 'racer#show', as: 'racer'
+  get 'tictac', to: 'tictac#show', as: 'tictac'
+
   get 'home/profile'
 
   get 'auth/:provide/callback', to: "sessions#create"
   delete 'sign_out', to: "sessions#destroy", as: 'sign_out'
+
 
 end

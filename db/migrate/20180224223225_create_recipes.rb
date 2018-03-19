@@ -1,7 +1,7 @@
 class CreateRecipes < ActiveRecord::Migration[5.1]
   def change
     create_table :recipes do |t|
-      t.string :recipe
+      t.string :name, :default => ""
       t.string :uri
       t.string :label
       t.string :image
@@ -17,7 +17,7 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
       t.string :calories
       t.string :totalWeight
       t.string :totalNutrients
-      t.boolean :bookarked
+      t.boolean :bookmarked
       t.boolean :bought
       t.integer :user_id
       t.timestamps

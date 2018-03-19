@@ -1,13 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  # devise :database_authenticatable, :registerable,
-  #        :recoverable, :rememberable, :trackable, :validatable
 
-  devise :omniauthable, :omniauth_providers => [:facebook]
+devise :database_authenticatable, :encryptable, :omniauthable, :omniauth_providers => [:facebook]
   # devise :omniauthable, omniauth_providers: %i[github]
 
-has_secure_password
+
 validates :first_name, :last_name, :email, presence: true
 has_many :recipes
 has_many :notifications, dependent: :destroy
@@ -17,6 +15,12 @@ has_many :likes, dependent: :destroy
 has_many :friends, -> { where("status = 'accepted'") }, through: :friendships
 has_many :requested_friends, -> { where("status = 'requested'") }, source: :friend
 has_many :pending_friends, -> { where("status = 'pending") }, through: :friendship, source: :friend
+
+
+
+def change
+    add_column :users, :password_salt, :string
+end
 
 
   def self.sign_in_from_omniauth(auth)
@@ -50,4 +54,5 @@ end
       end
     end
   end
+
 end

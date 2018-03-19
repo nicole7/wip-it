@@ -1,10 +1,30 @@
 class Recipe < ApplicationRecord
-  belongs_to :users
+
+  include HTTParty
+
+  # belongs_to :user
+
+
   has_many :likes, as: :likable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
-  validates :users, presence: true
-  validates :content, presence: true, associated: true
-  default_scope { order(id: :desc) }
+
+  # GIVE_JSON="Accept:application/json"
+  BASE_URL="https://api.edamam.com/search"
+
+
+  API_PARTIAL_URL="app_id=#{ENV['RECIPE_API_ID']}&app_key=#{ENV['RECIPE_API_KEY']}&from=0&to=10"
+
+  def query(user_search_input)
+    request = HTTParty.get(BASE_URL+self.recipe_search(user_search_input)+API_PARTIAL_URL).to_json
+    @request_hash = JSON.parse(request)
+  end
+
+  def recipe_search(user_search_input)
+    @search_format = "?q=#{user_search_input["name"].gsub(" ", "%20")}&"
+  end
+
+  # ENV['RECIPE_API_ID']
+  # ENV['RECIPE_API_KEY']
 end
 
 

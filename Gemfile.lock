@@ -64,6 +64,8 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise-encryptable (0.2.0)
+      devise (>= 2.1.0)
     dotenv (2.2.1)
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
@@ -214,6 +216,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.2)
+  devise-encryptable
   dotenv
   dotenv-rails
   faker
