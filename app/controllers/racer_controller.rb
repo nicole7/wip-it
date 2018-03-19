@@ -21,7 +21,7 @@ class RacerController < ApplicationController
       # sleep(0.2)
     end
 
-    puts "Player '#{game.winner}' wins!"
+    "Player '#{game.winner}' wins!"
     render 'show'
   end
 end

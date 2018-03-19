@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
 
 
+
   root "recipes#new"
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
