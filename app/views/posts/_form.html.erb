@@ -1,0 +1,43 @@
+<%= form_for :post do |f| %>
+    <% if @post.errors.any? %>
+      <div id="errors">
+        <h2><%= pluralize(@post.errors.count, "error")%> prevented this post from saving</h2>
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+          </ul>
+      </div>
+    <%end%>
+
+  <p>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </p>
+  <p>
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    Recipe Label:
+    <%= f.text_area :label %>
+  </p>
+  <p>
+    Cautions for Recipe:
+    <%= f.text_area :cautions %>
+  </p>
+  <p>
+    Ingredients:
+    <%= f.text_area :ingredientLines %>
+  </p>
+  <p>
+    Ingredients:
+    <%= f.text_area :ingredients %>
+  </p>
+  <p>
+    Total Nutrients:
+    <%= f.text_area :totalNutrients %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>

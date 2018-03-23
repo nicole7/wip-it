@@ -1,1 +1,10 @@
-<h1>Hello, beautiful</h1>
+<div class="container">
+  <h1><%= current_user.first_name %>'s Profile Page</h1>
+  <% if current_user.recipes.empty? %>
+    <%= "You do not have any recipes yet. Upload or search for some!" %>
+  <% else %>
+    <% current_user.recipes.each do |recipe| %>
+      <%= recipe %>
+    <% end %>
+  <% end %>
+</div>

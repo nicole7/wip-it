@@ -5,6 +5,7 @@ devise :database_authenticatable, :encryptable
 
 validates :first_name, :last_name, :email, presence: true
 has_many :recipes
+has_many :posts
 has_many :notifications, dependent: :destroy
 has_many :friendships, dependent: :destroy
 has_many :comments, dependent: :destroy

@@ -1,3 +1,5 @@
+require 'json'
+
 class Recipe < ApplicationRecord
 
   include HTTParty

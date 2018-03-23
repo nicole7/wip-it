@@ -9,8 +9,8 @@ class RecipesController < ApplicationController
 
   def create
     p params
-    @recipe = Recipe.create(recipe_params)
-    @recipe_response = @recipe.query(recipe_params)
+    @recipe = Recipe.create(params)
+    @recipe_response = @recipe.query(params)
     # @recipe_title = Recipe.new(recipe_params_by_title)
     # @recipe_ingredients = Recipe.new(recipe_by_ingredients)
     if @recipe.save
@@ -22,7 +22,13 @@ class RecipesController < ApplicationController
     end
   end
 
+  # def show
+  #   @recipe = Recipe.find(params[:id])
+  # end
+
   def destroy
+    @recipe.destroy
+    redirect_to users_path
   end
 
   private
@@ -43,8 +49,8 @@ class RecipesController < ApplicationController
   #   # @recipe = Recipe.find(params[:id])
   # end
 
-  def recipe_params
-    params.require(:recipe).permit(:name)
-  end
+  # def recipe_params
+  #   params.require(:recipe).permit(:name)
+  # end
 end
 
