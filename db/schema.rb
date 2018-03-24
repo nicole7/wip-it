@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 20180322192714) do
     t.string "provider"
     t.string "uid"
     t.string "name"
-    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

@@ -1,4 +1,4 @@
-<%= form_for :post do |f| %>
+<%= form_for(@post) do |f| %>
     <% if @post.errors.any? %>
       <div id="errors">
         <h2><%= pluralize(@post.errors.count, "error")%> prevented this post from saving</h2>
@@ -13,31 +13,31 @@
   <p>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </p>
-  <p>
-    <%= f.label :name %> <br>
+  <div class="name">
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
-  </p>
-  <p>
-    Recipe Label:
+  </div>
+  <div class="label">
+    <%= f.label :label %><br>
     <%= f.text_area :label %>
-  </p>
-  <p>
-    Cautions for Recipe:
+  </div>
+  <div class="cautions">
+    <%= f.label :cautions %><br>
     <%= f.text_area :cautions %>
-  </p>
-  <p>
-    Ingredients:
+  </div>
+  <div class="ingredientLines">
+    <%= f.label :ingredientLines %><br>
     <%= f.text_area :ingredientLines %>
-  </p>
-  <p>
-    Ingredients:
+  </div>
+  <div class="ingredients">
+    <%= f.label :ingredients %><br>
     <%= f.text_area :ingredients %>
-  </p>
-  <p>
-    Total Nutrients:
+  </div>
+  <div class="totalNutrients">
+    <%= f.label :totalNutrients %><br>
     <%= f.text_area :totalNutrients %>
-  </p>
-  <p>
+  </div>
+  <div class="actions">
     <%= f.submit %>
   </p>
   <% end %>

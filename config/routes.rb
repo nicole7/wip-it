@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :comments
     resources :recipes
+    resources :posts
   end
 
   resources :comments
