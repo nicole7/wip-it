@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-devise :database_authenticatable, :encryptable
+# devise :database_authenticatable, :encryptable
+has_secure_password
 
 validates :first_name, :last_name, :email, presence: true
 

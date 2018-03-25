@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
   end
 
   def new
@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Recipe.create(post_params)
+    @post = Post.new(post_params)
      current_user.posts << @post
 
     if @post.save
@@ -16,9 +16,6 @@ class PostsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def show
   end
 
  def edit

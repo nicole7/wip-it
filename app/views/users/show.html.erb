@@ -1,11 +1,19 @@
-<div class="container">
+<!-- <div class="container">
   <h1><%= current_user.first_name %>'s Profile Page</h1>
-  <% if current_user.recipes.nil? %>
-    <%= "You do not have any recipes yet."%> <a class="nav-link" href="/recipes/new">Upload</a> <%="or"%> <a class="nav-link" href="/search/index">search</a> <%="for some!" %>
+  <% if current_user.recipes.nil? && current_user.posts.nil?%>
+    <%= "You do not have any recipes yet."%>
+    <a href="/recipes/new"%>Add</a>
+    <%=" a recipe or "%>
+    <a href="/search/index">search</a>
+    <%=" for some!" %>
   <% else %>
     <% current_user.recipes.each do |recipe| %>
       <%= recipe %>
     <% end %>
+    <% current_user.posts.each do |post| %>
+      <%= post %>
+    <% end %>
   <% end %>
-</div>
+</div> -->
+
 

@@ -23,9 +23,17 @@ Rails.application.routes.draw do
 
   root "recipes#index"
 
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/register' => 'users#new'
+  post '/users' => 'users#create'
+
   get 'about', to: 'about#show', as: 'about'
   get 'search', to: 'search#index', as: 'search'
+
+  # get 'profile', to: 'users/#{current_user.id}', as: 'profile'
 
 
 end

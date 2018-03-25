@@ -4,9 +4,11 @@ class CreateUsers < ActiveRecord::Migration[5.1]
 
       t.string :first_name, null: false
       t.string :last_name, null: false
-      t.string :provider
-      t.string :uid
-      t.string :name
+      t.string :email
+      t.string :password_digest
+      # t.string :provider
+      # t.string :uid
+      # t.string :name
       t.timestamps
     end
   end
