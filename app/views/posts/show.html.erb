@@ -1,5 +1,5 @@
 <h1 class="name">
-  <%= @post.name %>
+  <%= @post.recipe_name %>
 </h1>
 
 <p class="date">
@@ -9,15 +9,15 @@
   | <%= link_to 'Delete', post_path(@post), method: :delete%>
   <%end%>
 </p>
-
+<!--
 <p class="body">
   <%= @post.body %>
-</p>
+</p> -->
 
-<div id="comments">
+<!-- <div id="comments">
   <h3><%= @post.comments.count %> Comments</h3>
   <%= render @post.comments %>
 
   <h3>Add a comment</h3>
   <%= render "comments/form" %>
-</div>
+</div> -->

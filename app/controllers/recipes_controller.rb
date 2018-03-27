@@ -1,4 +1,4 @@
-class RecipesController < ApplicationController
+ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
   end
@@ -7,20 +7,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-  def create
-    p params
-    @recipe = Recipe.create(params)
-    @recipe_response = @recipe.query(params)
-    # @recipe_title = Recipe.new(recipe_params_by_title)
-    # @recipe_ingredients = Recipe.new(recipe_by_ingredients)
-    if @recipe.save
-      # current_user.recipe << @recipe
-      redirect_to recipes_path
-    else
-      @errors = @recipe.errors.full_messages
-      render :new
-    end
-  end
+   #
 
   # def show
   #   @recipe = Recipe.find(params[:id])
@@ -31,7 +18,7 @@ class RecipesController < ApplicationController
     redirect_to users_path
   end
 
-  private
+  # private
 
   # def recipe_params_by_title
   #   params.require(:recipe).permit(:recipe)

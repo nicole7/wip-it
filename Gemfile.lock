@@ -237,7 +237,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4.2)
   devise-encryptable
-  dotenv
   dotenv-rails
   faker
   httparty

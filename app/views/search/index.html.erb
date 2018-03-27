@@ -9,20 +9,14 @@
   <% end %>
 
 
+<%= form_tag search_path, method: "get" do %>
+  <%= label_tag :query %>
+  <%= text_field_tag :query %>
+  <%= submit_tag "Search" %>
+<% end %>
 
-  <%= form_for @recipe do |f| %>
-    <div class="form-group">
-      <label for="recipe-name">Search Recipe</label>
-      <%= f.text_field :name, placeholder: "Recipe", class: 'form-control' %>
-    </div>
-    <%= f.button "Submit", class: 'btn btn-primary' %>
-
+<% if @recipes.present? %>
+  <% @recipes.each do |recipe| %>
+    <p><%= recipe.label %></p>
   <% end %>
-
-  <%= form_for @recipe do |f| %>
-    <div class="form-group">
-      <label for="recipe-name">Search Ingredients</label>
-        <%= f.text_field :name, placeholder: "Ingredients", class: 'form-control' %>
-    </div>
-    <%= f.button "Submit", class: 'btn btn-primary' %>
-  <% end %>
+<% end %>

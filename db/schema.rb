@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20180324205519) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "name"
+    t.string "recipe_name"
     t.string "label"
     t.string "cautions"
     t.string "ingredientLines"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20180324205519) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "name", default: ""
+    t.string "recipe_name", default: ""
     t.string "uri"
     t.string "label"
     t.string "image"
@@ -101,8 +101,10 @@ ActiveRecord::Schema.define(version: 20180324205519) do
     t.boolean "bookmarked"
     t.boolean "bought"
     t.integer "user_id"
+    t.integer "external_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "index_recipes_on_external_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -10,19 +10,4 @@
 
 
 
-  <%= form_for @recipe do |f| %>
-    <div class="form-group">
-      <label for="recipe-name">Search Recipe</label>
-      <%= f.text_field :name, placeholder: "Recipe", class: 'form-control' %>
-    </div>
-    <%= f.button "Submit", class: 'btn btn-primary' %>
 
-  <% end %>
-
-  <%= form_for @recipe do |f| %>
-    <div class="form-group">
-      <label for="recipe-name">Search Ingredients</label>
-        <%= f.text_field :name, placeholder: "Ingredients", class: 'form-control' %>
-    </div>
-    <%= f.button "Submit", class: 'btn btn-primary' %>
-  <% end %>

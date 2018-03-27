@@ -2,11 +2,11 @@
   <h1><%= current_user.first_name %>'s Profile Page</h1>
   <% if current_user.recipes.empty? && current_user.posts.empty? %>
     <%= "You do not have any recipes yet."%>
+    <% else %>
     <%= link_to 'Add', '/posts/new' %>
     <%=" a recipe or "%>
     <%= link_to 'search', '/recipes/new' %>
     <%=" for some!" %>
-  <% else %>
     <% current_user.recipes.each do |recipe| %>
       <%= recipe %>
     <% end %>

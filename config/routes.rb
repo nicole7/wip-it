@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
   post '/users' => 'users#create'
 
-  get 'about', to: 'about#show', as: 'about'
-  get 'search', to: 'search#index', as: 'search'
+  get 'about', to: 'about#show'
+  get 'search', to: 'search#index'
 
   # get 'profile', to: 'users/#{current_user.id}', as: 'profile'
 
