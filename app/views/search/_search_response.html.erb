@@ -1,0 +1,20 @@
+<% if @recipes.present? %>
+  <% @recipes.each do |recipe| %>
+    <% if !logged_in? || !current_user %>
+    <br></br>
+    <li><%= image_tag(recipe.image, size: "250x250") %></li>
+    <li>Recipe name: <%= recipe.label %></li>
+    <li><%= recipe.source%>: <span class="website"><%= link_to recipe.url, "#{recipe.url}" %></span></li>
+    <li>Total Calories: <%= recipe.calories.to_i.round %></li>
+    <br></br>
+    <% elsif logged_in? && current_user %>
+      <br></br>
+    <li><%= image_tag(recipe.image, size: "250x250") %></li>
+    <li>Recipe name: <%= recipe.label %></li>
+    <li><%= recipe.source%>: <span class="website"><%= link_to recipe.url, "#{recipe.url}" %></span></li>
+    <li>Total Calories: <%= recipe.calories.to_i.round %></li>
+    <p>Save</p>
+    <br></br>
+    <% end %>
+  <% end %>
+<% end %>

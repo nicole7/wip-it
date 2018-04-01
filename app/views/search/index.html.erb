@@ -15,8 +15,4 @@
   <%= submit_tag "Search" %>
 <% end %>
 
-<% if @recipes.present? %>
-  <% @recipes.each do |recipe| %>
-    <p><%= recipe.label %></p>
-  <% end %>
-<% end %>
+<%= render partial: "search_response", collection: @recipes%>
