@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get 'about', to: 'about#show'
   get 'search', to: 'search#index'
 
+  get 'favorite', to: 'favorite#to_favorite', via: :post
+  get 'un_favorite', to: 'favorite#un_favorite', via: :delete
   # get 'profile', to: 'users/#{current_user.id}', as: 'profile'
 
 

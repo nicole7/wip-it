@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324205519) do
+ActiveRecord::Schema.define(version: 20180402004029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(version: 20180324205519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friends", force: :cascade do |t|
@@ -67,11 +72,9 @@ ActiveRecord::Schema.define(version: 20180324205519) do
   create_table "posts", force: :cascade do |t|
     t.string "recipe_name"
     t.string "label"
-    t.string "cautions"
     t.string "ingredientLines"
     t.string "ingredients"
-    t.string "totalNutrients"
-    t.boolean "bookmarked"
+    t.integer "favorite"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,29 +85,24 @@ ActiveRecord::Schema.define(version: 20180324205519) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "recipe_name", default: ""
     t.string "uri"
     t.string "label"
     t.string "image"
     t.string "source"
     t.string "url"
     t.string "shareAs"
-    t.string "yield"
     t.string "dietLabels"
     t.string "cautions"
     t.string "tags"
     t.string "ingredientLines"
-    t.string "ingredients"
     t.string "calories"
-    t.string "totalWeight"
-    t.string "totalNutrients"
+    t.integer "favorite"
     t.boolean "bookmarked"
     t.boolean "bought"
     t.integer "user_id"
-    t.integer "external_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["external_id"], name: "index_recipes_on_external_id"
+    t.index ["uri"], name: "index_recipes_on_uri"
   end
 
   create_table "users", force: :cascade do |t|
