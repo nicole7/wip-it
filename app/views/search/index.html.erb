@@ -1,0 +1,18 @@
+<h2 class = "form-signin-heading">Search Recipes</h2>
+
+  <% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+
+<%= form_tag search_path, method: "get" do %>
+  <%= label_tag :query %>
+  <%= text_field_tag :query %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= render partial: "search_response", collection: @recipes%>

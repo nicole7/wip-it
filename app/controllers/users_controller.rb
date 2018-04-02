@@ -1,5 +1,4 @@
-class UsersController < ApplicationController
-
+ class UsersController < ApplicationController
 
   def new
     @user = User.new
@@ -9,19 +8,17 @@ class UsersController < ApplicationController
     @user = User.new(secure_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_path
+      redirect_to root_path
     else
       @errors = @user.errors.full_messages
-      render 'new'
+      render :new
     end
   end
 
   def show
-    redirect_unless_logged_in
-    if find_and_ensure_user(params[:id])
-      @user = User.find(params[:id])
-      redirect_to "user/show/#{@user.id}"
-    end
+    @user = User.find_by(id: params[:id])
+    @users = User.all
+    # @friend_ids = current_user.requests.pluck(:id)
   end
 
   private

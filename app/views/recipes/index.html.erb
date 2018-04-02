@@ -1,0 +1,14 @@
+<li class="options">
+  <a href="/search">search for recipes
+    <span class="sr-only"></span>
+  </a>
+</li>
+
+<% if logged_in? %>
+  <li class="options">
+    <a href="/posts/new">add recipes
+      <span class="sr-only"></span>
+    </a>
+  </li>
+<% end %>
+

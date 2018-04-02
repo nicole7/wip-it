@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311231205) do
+ActiveRecord::Schema.define(version: 20180324205519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "name"
+    t.text "body"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
 
   create_table "friends", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -55,12 +65,24 @@ ActiveRecord::Schema.define(version: 20180311231205) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.string "recipe_name"
+    t.string "label"
+    t.string "cautions"
+    t.string "ingredientLines"
+    t.string "ingredients"
+    t.string "totalNutrients"
+    t.boolean "bookmarked"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "recipe"
+    t.string "recipe_name", default: ""
     t.string "uri"
     t.string "label"
     t.string "image"
@@ -76,41 +98,22 @@ ActiveRecord::Schema.define(version: 20180311231205) do
     t.string "calories"
     t.string "totalWeight"
     t.string "totalNutrients"
-    t.boolean "bookarked"
+    t.boolean "bookmarked"
     t.boolean "bought"
     t.integer "user_id"
+    t.integer "external_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["external_id"], name: "index_recipes_on_external_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
+    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.integer "failed_attempts", default: 0, null: false
-    t.string "unlock_token"
-    t.datetime "locked_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "likes", "users"

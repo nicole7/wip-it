@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
-  get 'home/profile'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -11,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :comments
     resources :recipes
+    resources :posts
   end
 
   resources :comments
@@ -20,9 +19,21 @@ Rails.application.routes.draw do
   resources :recipes
   resources :sessions, only: [:new, :create, :destroy]
 
-  root "recipes#show"
+  resources :posts
 
-  get 'logout', to: 'sessions#destroy', as: 'logout'
-  get 'about', to: 'about#show', as: 'about'
+  root "recipes#index"
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/register' => 'users#new'
+  post '/users' => 'users#create'
+
+  get 'about', to: 'about#show'
+  get 'search', to: 'search#index'
+
+  # get 'profile', to: 'users/#{current_user.id}', as: 'profile'
+
 
 end

@@ -5,8 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem 'devise', '~> 4.2'
+gem "devise-encryptable"
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'dotenv'
 gem 'bootstrap', '~> 4.0.0.beta3'
 # gem 'bootstrap-sass', '~> 3.3.7'
 # gem 'sass-rails', '>= 3.2'
@@ -14,6 +14,7 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'rails', '~> 5.1.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+gem "paperclip", "~> 6.0.0"
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
