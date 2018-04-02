@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # auth = request.env["omniauth.auth"]
+    # session[:omniauth] = auth.expect('extra')
+    # user = User.sign_in_from_omniauth(auth)
+    # session[:user_id] = user.idredirect_to root_url, notice: "SIGNED IN"
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
@@ -15,7 +19,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    sessions[:omniauth] = nil
+    redirect_to root_path, notice: "SIGNED OUT"
   end
 
 end

@@ -21,6 +21,8 @@
     # @friend_ids = current_user.requests.pluck(:id)
   end
 
+
+
   private
 
   def secure_params
