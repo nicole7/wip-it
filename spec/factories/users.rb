@@ -5,3 +5,5 @@ FactoryBot.define do
     bio "MyString"
   end
 end
+
+
