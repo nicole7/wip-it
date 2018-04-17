@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-# devise :database_authenticatable, :encryptable
+
 has_secure_password
+
 
 validates :first_name, :last_name, :email, presence: true
 
@@ -18,6 +19,7 @@ has_many :requested_friends, -> { where("status = 'requested'") }, source: :frie
 has_many :pending_friends, -> { where("status = 'pending") }, through: :friendship, source: :friend
 
 
+
 def to_favorite!(post)
   self.favorites.create!(post_id: post.id)
 end
@@ -29,6 +31,10 @@ end
 
 def favorite?(post)
   self.favorites.find_by_post_id(post.id)
+end
+
+def change
+    add_column :users, :password_salt, :string
 end
 
 end
