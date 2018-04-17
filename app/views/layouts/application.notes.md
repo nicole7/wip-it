@@ -39,3 +39,13 @@
           </div>
 
         </div>
+        ............
+
+        friends
+         <!--   <div class="friends">
+      <h3><u><center>Pending requests:</center></u></h3>
+        <%= render "requests/received" %>
+      <h3><u><center>Sent Requests:</center></u></h3>
+        <%= render "requests/sent" %>
+        <h3><u><center><%= link_to "User List", users_path %></center></u></h3>
+    </div> -->

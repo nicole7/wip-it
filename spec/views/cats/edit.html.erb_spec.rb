@@ -1,4 +1,6 @@
-require 'rails_helper'
+# require "rails_helper"
+require_relative '../spec_helper'
+require 'rspec/core'
 
 RSpec.describe "cats/edit", type: :view do
   before(:each) do

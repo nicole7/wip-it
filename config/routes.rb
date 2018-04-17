@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   get 'favorite', to: 'favorite#to_favorite', via: :post
   get 'un_favorite', to: 'favorite#un_favorite', via: :delete
+  get 'request', to: 'request#index'
   # get 'profile', to: 'users/#{current_user.id}', as: 'profile'
 
 

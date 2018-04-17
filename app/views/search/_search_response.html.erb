@@ -13,7 +13,7 @@
     <li>Recipe name: <%= recipe.label %></li>
     <li><%= recipe.source%>: <span class="website"><%= link_to recipe.url, "#{recipe.url}" %></span></li>
     <li>Total Calories: <%= recipe.calories.to_i.round %></li>
-    <%= button_to "Sumbit", create_
+    <%= button_to "Favorite this!"%>
     <br></br>
     <% end %>
   <% end %>

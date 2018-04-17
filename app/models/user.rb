@@ -13,7 +13,7 @@ has_many :friendships, dependent: :destroy
 has_many :comments, dependent: :destroy
 has_many :guest_comments, through: :comments, source: :post
 has_many :likes, dependent: :destroy
-has_many :friends, -> { where("status = 'accepted'") }, through: :friendships
+has_many :friends, through: :friendships
 has_many :requested_friends, -> { where("status = 'requested'") }, source: :friend
 has_many :pending_friends, -> { where("status = 'pending") }, through: :friendship, source: :friend
 

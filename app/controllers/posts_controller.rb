@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
     current_user.posts << @post
 
     if @post.save
@@ -16,6 +16,10 @@ class PostsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
  def edit
@@ -39,6 +43,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:recipe_name, :label, :cautions, :ingredientLines, :ingredients, :totalNutrients, :bookmarked, :user_id)
+    params.require(:post).permit(:recipe_name, :label, :ingredientLines, :ingredients)
   end
 end
