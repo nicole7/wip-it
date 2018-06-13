@@ -8,10 +8,12 @@ gem 'devise', '~> 4.2'
 gem "devise-encryptable"
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'bootstrap', '~> 4.0.0.beta3'
+
 # gem 'bootstrap-sass', '~> 3.3.7'
 # gem 'sass-rails', '>= 3.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
+gem 'bundler', '~> 1.16.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 gem "paperclip", "~> 6.0.0"

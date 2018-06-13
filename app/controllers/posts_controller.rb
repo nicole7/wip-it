@@ -4,12 +4,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(params[:post])
   end
 
   def create
-    @post = Post.new(post_params)
-    current_user.posts << @post
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to @post

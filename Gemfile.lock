@@ -262,6 +262,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootstrap (~> 4.0.0.beta3)
+  bundler (~> 1.16.2)
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.2)
@@ -291,4 +292,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
