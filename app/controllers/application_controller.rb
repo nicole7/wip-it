@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
     def logged_in?
     session[:user_id] != nil
   end
@@ -23,4 +24,16 @@ class ApplicationController < ActionController::Base
     user = User.find_by(id: id)
     redirect_to '/404' if user.nil? || user != current_user
   end
+
+
+  # protect_from_forgery with: :exception
+  # before_action :authenticate_user!
+
+  protect_from_forgery with: :exception
+
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || root_path
+  end
+
+
 end

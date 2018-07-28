@@ -23,6 +23,8 @@
     @users = User.all
   end
 
+
+
   private
 
   def secure_params
