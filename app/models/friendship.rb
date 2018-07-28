@@ -1,10 +1,24 @@
 class Friendship < ApplicationRecord
 
+  # belongs_to :person, :foreign_key => :friend_id
   belongs_to :user
-  belongs_to :friend, class_name: 'User'
+  belongs_to :friend, :class_name => 'User'
 
-  after_create :make_two_sided_friendship
-  after_destroy :destroy_two_sided_friendship
+  after_create do |p|
+    if !Friendship.find(:first, :conditions => {:friend_id => p.person_id})
+      Friendship.create!(:person_id => p.friend_id, :friend_id =>p.person_id)
+    end
+  end
+
+  after_update do |p|
+    reciprocal = Friendship.find(:first, :conditions =>{:friend_id => p.person_id})
+    reciprocal.is_pending = self.is_pending unless reciprocal.nil?
+  end
+
+  after_destroy do |p|
+    reciprocal = Friendship.find(:first, :conditions => {:friend_id => p.person_id})
+      reciprocal.destroy unless reciprocal.nil?
+  end
 
   validate :not_self
 

@@ -8,14 +8,16 @@ has_many :recipes
 has_many :favorites, dependent: :destroy
 has_many :posts
 has_many :favorite_posts, class_name: 'Post', through: :favorites
+
 has_many :notifications, dependent: :destroy
-has_many :friendships, dependent: :destroy
+has_many :friendships
+has_many :friends, :through => :friendships
+has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+
 has_many :comments, dependent: :destroy
 has_many :guest_comments, through: :comments, source: :post
 has_many :likes, dependent: :destroy
-has_many :friends, through: :friendships
-has_many :requested_friends, -> { where("status = 'requested'") }, source: :friend
-has_many :pending_friends, -> { where("status = 'pending") }, through: :friendship, source: :friend
 
 
 def to_favorite!(post)
