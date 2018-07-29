@@ -9,7 +9,6 @@ has_many :favorites, dependent: :destroy
 has_many :posts
 has_many :favorite_posts, class_name: 'Post', through: :favorites
 
-has_many :notifications, dependent: :destroy
 has_many :friendships
 has_many :friends, :through => :friendships
 has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"

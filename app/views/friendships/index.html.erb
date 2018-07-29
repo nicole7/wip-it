@@ -9,17 +9,6 @@
     <% end %>
   </ul>
 
-  <% for user in @users %>
-  <div class="user">
-    <p>
-      <%= h user.first_name %>
-      <%= h user.last_name %>
-      <%link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-      <div class="clear"></div>
-    </p>
-  </div>
-<% end %>
-
 <h3>Users who have befriended you</h3>
 <ul>
   <% for user in @user.inverse_friends %>
