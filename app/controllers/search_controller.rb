@@ -5,7 +5,5 @@ class SearchController < ApplicationController
       puts params[:query]
     end
     render 'index'
-
   end
-
 end
