@@ -24,4 +24,5 @@ module ApplicationHelper
     user = User.find_by(id: id)
     redirect_to '/404' if user.nil? || user != current_user
   end
+
 end

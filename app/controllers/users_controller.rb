@@ -1,4 +1,7 @@
  class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -18,7 +21,6 @@
   def show
     @user = User.find_by(id: params[:id])
     @users = User.all
-    # @friend_ids = current_user.requests.pluck(:id)
   end
 
 

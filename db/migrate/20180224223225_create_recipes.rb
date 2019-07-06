@@ -12,6 +12,7 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
       t.string :tags
       t.string :ingredientLines
       t.string :calories
+      t.integer :favorite
       t.boolean :bookmarked
       t.boolean :bought
       t.integer :user_id

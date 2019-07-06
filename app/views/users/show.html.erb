@@ -1,19 +1,32 @@
-<!-- <div class="container">
-  <h1><%= current_user.first_name %>'s Profile Page</h1>
-  <% if current_user.recipes.nil? && current_user.posts.nil?%>
-    <%= "You do not have any recipes yet."%>
-    <a href="/recipes/new"%>Add</a>
-    <%=" a recipe or "%>
-    <a href="/search/index">search</a>
-    <%=" for some!" %>
-  <% else %>
-    <% current_user.recipes.each do |recipe| %>
-      <%= recipe %>
+ <p><%= link_to "Find Friends", users_path %></p>
+
+  <h3>Your Friends</h3>
+  <ul>
+    <% for friendship in @user.friendships %>
+      <li><%= h friendship.friend.first_name %>
+          (<%= link_to "remove", friendship, :method => :delete %>)
+      </li>
     <% end %>
-    <% current_user.posts.each do |post| %>
-      <%= post %>
-    <% end %>
+  </ul>
+
+  <% for user in @users %>
+  <div class="user">
+    <p>
+      <%= h user.first_name %>
+      <%= h user.last_name %>
+      <%link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
+
+<h3>Users who have befriended you</h3>
+<ul>
+  <% for user in @user.inverse_friends %>
+    <li><%= h user.first_name %>
+      <%= h user.last_name %>
+    </li>
   <% end %>
-</div> -->
+</ul>
 
 

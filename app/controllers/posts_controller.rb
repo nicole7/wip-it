@@ -4,18 +4,21 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(params[:post])
   end
 
   def create
-    @post = Post.create(post_params)
-    current_user.posts << @post
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to @post
     else
       render 'new'
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
  def edit
@@ -39,6 +42,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:recipe_name, :label, :cautions, :ingredientLines, :ingredients, :totalNutrients, :bookmarked, :user_id)
+    params.require(:post).permit(:recipe_name, :label, :ingredientLines, :ingredients)
   end
 end

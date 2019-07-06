@@ -1,44 +1,38 @@
-<h1>Enter in a new recipe!</h1>
-<%= form_for(@post) do |f| %>
-    <% if @post.errors.any? %>
-      <div id="errors">
-        <h2><%= pluralize(@post.errors.count, "error")%> prevented this post from saving</h2>
-            <ul>
-              <% @post.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-          </ul>
-      </div>
-    <%end%>
+<% if current_user %>
+  <h1>Enter in a new recipe!</h1>
+  <%= form_for(@post) do |f| %>
+      <% if @post.errors.any? %>
+        <div id="errors">
+          <h2><%= pluralize(@post.errors.count, "error")%> prevented this post from saving</h2>
+              <ul>
+                <% @post.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+      <%end%>
 
-  <p>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </p>
-  <div class="recipe_name">
-    <%= f.label :recipe_name %><br>
-    <%= f.text_field :recipe_name %>
-  </div>
-  <div class="label">
-    <%= f.label :label %><br>
-    <%= f.text_area :label %>
-  </div>
-  <div class="cautions">
-    <%= f.label :cautions %><br>
-    <%= f.text_area :cautions %>
-  </div>
-  <div class="ingredientLines">
-    <%= f.label :ingredientLines %><br>
-    <%= f.text_area :ingredientLines %>
-  </div>
-  <div class="ingredients">
-    <%= f.label :ingredients %><br>
-    <%= f.text_area :ingredients %>
-  </div>
-  <div class="totalNutrients">
-    <%= f.label :totalNutrients %><br>
-    <%= f.text_area :totalNutrients %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </p>
-  <% end %>
+    <p>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </p>
+    <div class="recipe_name">
+      <%= f.label :recipe_name %><br>
+      <%= f.text_field :recipe_name %>
+    </div>
+    <div class="label">
+      <%= f.label :label %><br>
+      <%= f.text_area :label %>
+    </div>
+    <div class="ingredientLines">
+      <%= f.label :ingredientLines %><br>
+      <%= f.text_area :ingredientLines %>
+    </div>
+    <div class="ingredients">
+      <%= f.label :ingredients %><br>
+      <%= f.text_area :ingredients %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </p>
+    <% end %>
+<% end %>

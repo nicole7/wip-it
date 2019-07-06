@@ -8,10 +8,12 @@ gem 'devise', '~> 4.2'
 gem "devise-encryptable"
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'bootstrap', '~> 4.0.0.beta3'
+
 # gem 'bootstrap-sass', '~> 3.3.7'
 # gem 'sass-rails', '>= 3.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
+gem 'bundler', '~> 1.16.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 gem "paperclip", "~> 6.0.0"
@@ -39,6 +41,19 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :development, :test do
+  # Our brave brigade of debuggers!
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # from rails new
+  gem 'pry'
+
+  # RSpec & testing gems!
+  gem 'rspec-rails', '~> 3.7'
+  gem 'shoulda-matchers', '~> 3.1'
+
+  # For test data generation
+  gem "factory_bot_rails", "~> 4.0"
+  # gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

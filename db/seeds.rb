@@ -9,9 +9,9 @@
 
 
 
-User.destroy_all
 
-User.create!(first_name: "Nicole", last_name: "Gasperini", email: "ngasperini@gmail.com", password_digest: "12345")
+
+User.create!(first_name: "Nicole", last_name: "Gasperini", email: "ngasperini@gmail.com", password: "12345")
 
 # 25.times do
 #   first_name = Faker::Name.first_name
